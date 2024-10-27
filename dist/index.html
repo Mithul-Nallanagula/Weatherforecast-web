@@ -1,0 +1,119 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-image: url('images/cloud.jpg');
+            background-size: cover; 
+            background-attachment: fixed; 
+            background-position: center;
+            background-repeat: no-repeat; 
+            background-color: #a0c4ff; 
+            height: 100vh;
+            margin: 0; 
+            overflow: auto; 
+        }
+    </style>
+    <title>Weather Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class=" ">
+    <div class="text-center h-28">
+        <h1 class="font-plywrite text-white text-8xl font-bold max-sm:text-5xl text-center max-md:text-6xl max-s:text-4xl max-lg:text-7xl">Weather Forecast</h1>
+        
+    </div>
+
+    <div class="h-96  ml-1 max-xl:mt-16 w-full grid place-items-center max-sm:w-full max-sm:h-2/5 max-2xl:mt-28 mt-16 " id="bcon"> 
+      
+        <div class=" bg-white w-3/12 h-full rounded-md ml-4 max-sm:ml-0 bg-opacity-70 text-center grid place-items-center max-sm:w-full max-lg:w-3/6 max-xl:w-1/2 max-sm:h-full max-md:w-3/5 max-2xl:w-2/5  " id="whitecon">
+            <label class="text-3xl font-extralight">Enter Your City</label><br>
+            <input type="text" name="City" id="city" placeholder="Enter your City" class="bg-black opacity-none rounded-3xl text-white text-center h-12 w-2/3">
+            <button type="submit" class="w-28 mt-2 rounded-2xl bg-blue-400 h-9" id="btn">Enter</button>
+            <h2 class="font-bold text-2xl mt-3">Or</h2>
+            <button type="button" name="City" id="locate" class="bg-black opacity-none block rounded-3xl text-white text-center h-12 mb-6 w-2/3">Use Current Location</button>
+            <div id="recentSearches" class="w-52 h-16"></div>
+
+        </div>
+        
+
+        <div class="border-4 w-full max-sm:w-full  max-sm:h-5/12   max-sm:place-items-center rounded-xl bg-cyan-500 bg-opacity-70 h-full hidden grid-cols-1" id="con1">
+            <div class="grid grid-cols-3">
+                <div class="border-3 border-white w-fit h-fit max-sm:w-full">
+                    <h1 class="block text-9xl font-bold ml-7 mt-7 font-bebas w-68 max-sm:text-5xl max-md:text-7xl max-s:text-4xl max-s:mt-2 max-lg:text-7xl max-xl:text-7xl max-2xl:text-8xl " id="cityname"></h1>
+                    <h2 class="text-3xl font-bold ml-5 mt-5 block max-sm:text-xl max-md:text-2xl max-s:text-sm max-s:mt-2 ">Temperature: <span id="temp"></span></h2>
+                    <h2 class="block text-3xl font-bold ml-5 mt-3 max-sm:text-xl max-md:text-2xl max-s:text-sm max-s:mt-2  ">Wind: <span id="wind"></span></h2>
+                    <h2 class="block text-3xl font-bold ml-5 mt-3 max-sm:text-xl max-md:text-2xl max-s:text-sm  max-s:mt-2 ">Humidity: <span id="humidity"></span></h2>
+                </div>
+
+                <div class="w-72 h-72 mt-5 grid max-sm:w-44 max-md:w-44 max-md:place-items-center max-md:ml-14 max-sm:mt-20 max-s:w-20 max-s:place-items-center max-s:mt-0 max-s:" id="logo"></div>
+
+                <h1 class="grid place-items-center font-plywrite font-extrabold" id="cong"></h1>
+            </div>
+        </div>
+
+       
+       
+    </div>
+    <div class="border-3 border-white w-full h-2/6 grid place-items-center m-3">
+
+    <div class="border-2 border-black w-2/4 h-full hidden rounded-3xl m-2  bg-slate-600 bg-opacity-45 place-items-center max-sm:w-full max-sm:ml-0 max-sm:h-full items-center  " id="day0">
+        <h1 class="font-bold text-6xl font-bebas text-white block ">Tomorrow</h1>
+
+       
+        <div>
+            <h1 class="text-3xl font-bold font-plywrite ml-5 mt-5 block max-sm:text-2xl max-s:text-sm">Temperature: <span id="temp2"></span></h1>
+            <h1 class="text-3xl font-bold ml-5 mt-5 font-plywrite block max-sm:text-2xl max-s:text-sm">Wind: <span id="wind2"></span></h1>
+            <h1 class="text-3xl font-bold ml-5 mt-5 font-plywrite block max-sm:text-2xl max-s:text-sm">Humidity: <span id="humi2"></span></h1>
+        </div>
+    </div>
+    </div>
+
+
+
+
+    <div class="  h-96 w-full hidden bg-gray-600 rounded-md ml-1 mt-7 bg-opacity-50 grid-cols-4 max-sm:ml-0 max-sm:h-5/6 max-sm:w-fit max-sm:grid-cols-2 max-lg:grid-cols-2  max-md:grid-cols-2  max-md:w-fit max-md:ml-4 max-lg:ml-2 max-xl:grid-cols-2" id="extra">
+        <div class="border-3 border-yellow-300 bg-white w-11/12 h-full  bg-opacity-50 rounded-2xl grid place-items-center " id="day1">
+            <h1 class="font-bold text-5xl font-bebas text-black block"><span id="Date1"></span></h1>
+            <div>
+                <h1 class="text-3xl font-bold font-plywrite ml-5 mt-5 block max-s:text-sm max-lg:text-xl ">Temperature: <span id="temp3"></span></h1>
+                <h1 class="text-3xl font-bold ml-5 mt-5 font-plywrite block max-s:text-sm max-lg:text-xl ">Wind: <span id="wind3"></span></h1>
+                <h1 class="text-3xl font-bold ml-5 mt-5 font-plywrite block max-s:text-sm max-lg:text-xl ">Humidity: <span id="humi3"></span></h1>
+            </div>
+        </div>
+
+        <div class="border-3 border-yellow-300 bg-white w-11/12 h-full max-sm:m-0  max-sm:ml-5 max-md:m-0 max-lg:m-0 max-lg:ml-7 max-md:ml-7 max-xl:ml-7 max-xl:m-0 bg-opacity-50 rounded-2xl grid place-items-center " id="day2">
+            <h1 class="font-bold text-5xl font-bebas text-black block"><span id="Date2"></span></h1>
+            <div>
+                <h1 class="text-3xl font-bold font-plywrite ml-5  block max-s:text-sm max-lg:text-xl">Temperature: <span id="temp4"></span></h1>
+                <h1 class="text-3xl font-bold ml-5 mt-5 font-plywrite block max-s:text-sm max-lg:text-xl ">Wind: <span id="wind4"></span></h1>
+                <h1 class="text-3xl font-bold ml-5 mt-5 font-plywrite block max-s:text-sm max-lg:text-xl ">Humidity: <span id="humi4"></span></h1>
+            </div>
+        </div>
+
+        <div class="border-3 border-yellow-300 bg-white w-11/12 h-full grid  bg-opacity-50 max-sm:m-0 max-sm:mt-2 max-md:m-0 max-lg:m-0 max-lg:mt-2 max-md:mt-2 rounded-2xl place-items-center max-xl:mt-2 " id="day3">
+            <h1 class="font-bold text-5xl font-bebas text-black block"><span id="Date3"></span></h1>
+            <div>
+                <h1 class="text-3xl font-bold font-plywrite ml-5 mt-5 block max-s:text-sm max-lg:text-xl ">Temperature: <span id="temp5"></span></h1>
+                <h1 class="text-3xl font-bold ml-5 mt-5 font-plywrite block max-s:text-sm max-lg:text-xl ">Wind: <span id="wind5"></span></h1>
+                <h1 class="text-3xl font-bold ml-5 mt-5 font-plywrite block max-s:text-sm max-lg:text-xl ">Humidity: <span id="humi5"></span></h1>
+            </div>
+        </div>
+
+        <div class="border-3 border-yellow-300 bg-white w-11/12 h-full grid ml-7 max-sm:ml-5   bg-opacity-50 rounded-2xl max-sm:mt-2 max-md:m-0 max-md:mt-2  place-items-center max-md:ml-7 max-lg:mt-2 max-xl:mt-2" id="day4">
+            <h1 class="font-bold text-5xl font-bebas text-black block "><span id="Date4"></span></h1>
+            
+            <div>
+                <h1 class="text-3xl font-bold font-plywrite ml-5 mt-5 block max-s:text-sm max-lg:text-xl ">Temperature: <span id="temp6"></span></h1>
+                <h1 class="text-3xl font-bold ml-5 mt-5 font-plywrite block max-s:text-sm max-lg:text-xl ">Wind: <span id="wind6"></span></h1>
+                <h1 class="text-3xl font-bold ml-5 mt-5 font-plywrite block max-s:text-sm max-lg:text-xl ">Humidity: <span id="humi6"></span></h1>
+            </div>
+        </div>
+    </div>
+
+    <script src="style.js"></script>
+</body>
+</html>
